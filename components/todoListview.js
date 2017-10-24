@@ -53,7 +53,7 @@ class todoListview extends React.Component {
        },
        body: JSON.stringify({
          task: this.state.task,
-         order: this.state.order
+         order: 1
         
      })
    })
@@ -119,13 +119,13 @@ class todoListview extends React.Component {
                autoCapitalize = "none"
                onChangeText = {this.handleTask}
                />
-               <TextInput style = {styles.input}
+               {/* <TextInput style = {styles.input}
                underlineColorAndroid = "transparent"
                placeholder = "Order"
                placeholderTextColor = "#9a73ef"
                autoCapitalize = "none"
                onChangeText = {this.handleOrder}
-               />
+               /> */}
                <TouchableOpacity
                style = {styles.submitButton}
                onPress = {

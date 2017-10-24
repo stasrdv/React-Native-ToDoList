@@ -6,7 +6,7 @@
     density="xhdpi"
     format="10"
     plugin-version="2.3.3"
-    timestamp="1508837343042"
+    timestamp="1508847856328"
     token="-2943194405624343033"
     verifier="COLD_SWAP_REQUESTED" >
 
@@ -25,78 +25,40 @@
 
     <build
         build-mode="FULL"
-        timestamp="1508833784283"
+        timestamp="1508847610035"
         verifier="FULL_BUILD_REQUESTED" >
         <artifact
             location="/Users/StasRudevitsky/Desktop/TodoList_RN/React-Native-ToDoList/android/app/build/intermediates/split-apk/debug/dep/dependencies.apk"
             type="SPLIT" />
         <artifact
-            location="/Users/StasRudevitsky/Desktop/TodoList_RN/React-Native-ToDoList/android/app/build/intermediates/split-apk/debug/slices/slice_0.apk"
-            type="SPLIT" />
-        <artifact
-            location="/Users/StasRudevitsky/Desktop/TodoList_RN/React-Native-ToDoList/android/app/build/intermediates/split-apk/debug/slices/slice_5.apk"
-            type="SPLIT" />
-        <artifact
-            location="/Users/StasRudevitsky/Desktop/TodoList_RN/React-Native-ToDoList/android/app/build/intermediates/split-apk/debug/slices/slice_1.apk"
-            type="SPLIT" />
-        <artifact
-            location="/Users/StasRudevitsky/Desktop/TodoList_RN/React-Native-ToDoList/android/app/build/intermediates/split-apk/debug/slices/slice_7.apk"
-            type="SPLIT" />
-        <artifact
-            location="/Users/StasRudevitsky/Desktop/TodoList_RN/React-Native-ToDoList/android/app/build/intermediates/split-apk/debug/slices/slice_6.apk"
-            type="SPLIT" />
-        <artifact
-            location="/Users/StasRudevitsky/Desktop/TodoList_RN/React-Native-ToDoList/android/app/build/intermediates/split-apk/debug/slices/slice_2.apk"
-            type="SPLIT" />
-        <artifact
-            location="/Users/StasRudevitsky/Desktop/TodoList_RN/React-Native-ToDoList/android/app/build/intermediates/split-apk/debug/slices/slice_4.apk"
-            type="SPLIT" />
-        <artifact
             location="/Users/StasRudevitsky/Desktop/TodoList_RN/React-Native-ToDoList/android/app/build/intermediates/split-apk/debug/slices/slice_3.apk"
-            type="SPLIT" />
-        <artifact
-            location="/Users/StasRudevitsky/Desktop/TodoList_RN/React-Native-ToDoList/android/app/build/intermediates/split-apk/debug/slices/slice_8.apk"
-            type="SPLIT" />
-        <artifact
-            location="/Users/StasRudevitsky/Desktop/TodoList_RN/React-Native-ToDoList/android/app/build/intermediates/split-apk/debug/slices/slice_9.apk"
             type="SPLIT" />
         <artifact
             location="/Users/StasRudevitsky/Desktop/TodoList_RN/React-Native-ToDoList/android/app/build/outputs/apk/app-debug.apk"
             type="SPLIT_MAIN" />
-    </build>
-    <build
-        build-mode="COLD"
-        timestamp="1508836009240"
-        verifier="COLD_SWAP_REQUESTED" >
         <artifact
-            location="/Users/StasRudevitsky/Desktop/TodoList_RN/React-Native-ToDoList/android/app/build/intermediates/split-apk/debug/dep/dependencies.apk"
-            type="SPLIT" />
-        <artifact
-            location="/Users/StasRudevitsky/Desktop/TodoList_RN/React-Native-ToDoList/android/app/build/intermediates/split-apk/debug/slices/slice_6.apk"
-            type="SPLIT" />
-        <artifact
-            location="/Users/StasRudevitsky/Desktop/TodoList_RN/React-Native-ToDoList/android/app/build/intermediates/split-apk/debug/slices/slice_0.apk"
-            type="SPLIT" />
-        <artifact
-            location="/Users/StasRudevitsky/Desktop/TodoList_RN/React-Native-ToDoList/android/app/build/intermediates/split-apk/debug/slices/slice_2.apk"
-            type="SPLIT" />
-        <artifact
-            location="/Users/StasRudevitsky/Desktop/TodoList_RN/React-Native-ToDoList/android/app/build/intermediates/split-apk/debug/slices/slice_1.apk"
+            location="/Users/StasRudevitsky/Desktop/TodoList_RN/React-Native-ToDoList/android/app/build/intermediates/split-apk/debug/slices/slice_8.apk"
             type="SPLIT" />
         <artifact
             location="/Users/StasRudevitsky/Desktop/TodoList_RN/React-Native-ToDoList/android/app/build/intermediates/split-apk/debug/slices/slice_7.apk"
             type="SPLIT" />
         <artifact
+            location="/Users/StasRudevitsky/Desktop/TodoList_RN/React-Native-ToDoList/android/app/build/intermediates/split-apk/debug/slices/slice_1.apk"
+            type="SPLIT" />
+        <artifact
             location="/Users/StasRudevitsky/Desktop/TodoList_RN/React-Native-ToDoList/android/app/build/intermediates/split-apk/debug/slices/slice_4.apk"
+            type="SPLIT" />
+        <artifact
+            location="/Users/StasRudevitsky/Desktop/TodoList_RN/React-Native-ToDoList/android/app/build/intermediates/split-apk/debug/slices/slice_2.apk"
+            type="SPLIT" />
+        <artifact
+            location="/Users/StasRudevitsky/Desktop/TodoList_RN/React-Native-ToDoList/android/app/build/intermediates/split-apk/debug/slices/slice_0.apk"
             type="SPLIT" />
         <artifact
             location="/Users/StasRudevitsky/Desktop/TodoList_RN/React-Native-ToDoList/android/app/build/intermediates/split-apk/debug/slices/slice_5.apk"
             type="SPLIT" />
         <artifact
-            location="/Users/StasRudevitsky/Desktop/TodoList_RN/React-Native-ToDoList/android/app/build/intermediates/split-apk/debug/slices/slice_3.apk"
-            type="SPLIT" />
-        <artifact
-            location="/Users/StasRudevitsky/Desktop/TodoList_RN/React-Native-ToDoList/android/app/build/intermediates/split-apk/debug/slices/slice_8.apk"
+            location="/Users/StasRudevitsky/Desktop/TodoList_RN/React-Native-ToDoList/android/app/build/intermediates/split-apk/debug/slices/slice_6.apk"
             type="SPLIT" />
         <artifact
             location="/Users/StasRudevitsky/Desktop/TodoList_RN/React-Native-ToDoList/android/app/build/intermediates/split-apk/debug/slices/slice_9.apk"
@@ -104,15 +66,7 @@
     </build>
     <build
         build-mode="COLD"
-        timestamp="1508837228349"
-        verifier="COLD_SWAP_REQUESTED" >
-        <artifact
-            location="/Users/StasRudevitsky/Desktop/TodoList_RN/React-Native-ToDoList/android/app/build/outputs/apk/app-debug.apk"
-            type="SPLIT_MAIN" />
-    </build>
-    <build
-        build-mode="COLD"
-        timestamp="1508837343042"
+        timestamp="1508847856328"
         verifier="COLD_SWAP_REQUESTED" />
 
 </instant-run>

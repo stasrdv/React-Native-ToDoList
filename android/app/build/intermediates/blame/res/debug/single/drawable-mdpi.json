@@ -8,12 +8,12 @@
         "source": "/Users/StasRudevitsky/.android/build-cache/8819e97dfd7663b8760378de7dde7b348fda6537/output/res/drawable-mdpi/abc_textfield_search_activated_mtrl_alpha.9.png"
     },
     {
-        "merged": "/Users/StasRudevitsky/Desktop/TodoList_RN/React-Native-ToDoList/android/app/build/intermediates/res/merged/debug/drawable-mdpi/abc_btn_rating_star_off_mtrl_alpha.png",
-        "source": "/Users/StasRudevitsky/.android/build-cache/8819e97dfd7663b8760378de7dde7b348fda6537/output/res/drawable-mdpi/abc_btn_rating_star_off_mtrl_alpha.png"
-    },
-    {
         "merged": "/Users/StasRudevitsky/Desktop/TodoList_RN/React-Native-ToDoList/android/app/build/intermediates/res/merged/debug/drawable-mdpi/abc_btn_check_to_on_mtrl_000.png",
         "source": "/Users/StasRudevitsky/.android/build-cache/8819e97dfd7663b8760378de7dde7b348fda6537/output/res/drawable-mdpi/abc_btn_check_to_on_mtrl_000.png"
+    },
+    {
+        "merged": "/Users/StasRudevitsky/Desktop/TodoList_RN/React-Native-ToDoList/android/app/build/intermediates/res/merged/debug/drawable-mdpi/abc_btn_rating_star_off_mtrl_alpha.png",
+        "source": "/Users/StasRudevitsky/.android/build-cache/8819e97dfd7663b8760378de7dde7b348fda6537/output/res/drawable-mdpi/abc_btn_rating_star_off_mtrl_alpha.png"
     },
     {
         "merged": "/Users/StasRudevitsky/Desktop/TodoList_RN/React-Native-ToDoList/android/app/build/intermediates/res/merged/debug/drawable-mdpi/abc_menu_hardkey_panel_mtrl_mult.9.png",

@@ -16,7 +16,7 @@
         jumboMode="true"
         optimize="true"
         revision="25.0.0"
-        sha1="fb5d678f551eb7dfe1eff42097a8d8573e61f297">
+        sha1="d3f7134df593de065aa6f8bde3ed2e4b571c1646">
         <dex dex="/Users/StasRudevitsky/Desktop/TodoList_RN/React-Native-ToDoList/android/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run-bootstrap_9413f9465e87cdb90d90afee28374f1fc3ca6722/classes.dex" />
     </item>
     <item

@@ -20,7 +20,6 @@ export default class App extends React.Component {
   }
 }
 
-
 export const AppRouter = StackNavigator({
   LoginRender: { screen: LoginRender },
   todoListview: { screen: todoListview },

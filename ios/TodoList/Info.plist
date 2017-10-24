@@ -7,8 +7,9 @@
 		<key>NSAllowsArbitraryLoads</key>
 		<true/>
 	</dict>
-	
-
+	<!-- acess to galery,and camera usage -->
+<key>NSPhotoLibraryAddUsageDescription</key>
+<string>Your message to user when the photo library is accessed for the first time</string>
 
 	<key>NSCameraUsageDescription</key>
 <string>Your message to user when the camera is accessed for the first time</string>
@@ -17,6 +18,7 @@
 <string>
    Your message to user when the photo library is accessed for the first time
 </string>
+<!--  -->
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleDisplayName</key>

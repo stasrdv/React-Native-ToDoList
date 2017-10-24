@@ -41,11 +41,11 @@ export default class LoginIOS extends React.Component {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        // email: email,
-        // password: pass
+        email: email,
+        password: pass
 
-        email:"mor@test.com",
-        password:"1234"
+        // email:"mor@test.com",
+        // password:"1234"
 
       })
     })

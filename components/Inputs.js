@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { View, Text, TouchableOpacity, TextInput, StyleSheet,AsyncStorage } from 'react-native'
+import { View, Text, TouchableOpacity, TextInput, StyleSheet,AsyncStorage,Button } from 'react-native'
 
 
 
@@ -7,10 +7,11 @@ import { View, Text, TouchableOpacity, TextInput, StyleSheet,AsyncStorage } from
 class Inputs extends Component {
   constructor(){
     super();
-    
+   
     this.state = {
       email: '',
       password: '',
+      textLength: 0,
       
    }
   }
@@ -24,17 +25,68 @@ class Inputs extends Component {
 
 
 
-   render(){
+   onChangeText(text){
+    this.setState({ email: text })
+    this.setState({
+      textLength: text.length,
+    });
+  
+  }
 
+  styleRender() {
+    if(this.state.textLength==0){
+      return {
+        margin: 15,
+        height: 40,
+        borderColor: 'blue',
+        borderWidth: 1
+      }
+    }
+    if(this.state.textLength<4 ||this.state.textLength>6){
+      return {
+        margin: 15,
+        height: 40,
+        borderColor: 'red',
+        borderWidth: 1
+      }
+    }
+    if(this.state.textLength>=4 &&this.state.textLength<=6){
+      return {
+        margin: 15,
+        height: 40,
+        borderColor: 'green',
+        borderWidth: 1
+      }
+    }
+    this.setState({ email: text })
+  }
+
+  navigateToQR(){
+
+  }
+
+   render(){
+   
       return (
          <View style = {styles.container}>
-            <TextInput style = {styles.input}
+<Button
+onPress={
+    ()=>navigate('cameraComponent')
+}
+  title="QR Scanner"
+  color="#841584"
+  accessibilityLabel="Learn more about this purple button"
+/>
+         
+            <TextInput 
+
+            style = {this.styleRender()}
+            onChangeText={this.onChangeText.bind(this)}
                underlineColorAndroid = "transparent"
                placeholder = "Email"
                placeholderTextColor = "#9a73ef"
                autoCapitalize = "none"
-               onChangeText = {this.handleEmail}/>
-            
+               />
             <TextInput style = {styles.input}
                underlineColorAndroid = "transparent"
                placeholder = "Password"
@@ -49,6 +101,7 @@ class Inputs extends Component {
                   this.props.login(this.state.email, this.state.password)
                   }>
                <Text style = {styles.submitButtonText}> Login </Text>
+             
             </TouchableOpacity>
          </View>
       )
@@ -63,11 +116,11 @@ const styles = StyleSheet.create({
    input: {
       margin: 15,
       height: 40,
-      borderColor: '#7a42f4',
+      borderColor: 'blue',
       borderWidth: 1
    },
    submitButton: {
-      backgroundColor: '#7a42f4',
+      backgroundColor: '#008CBA',
       padding: 10,
       margin: 15,
       height: 40,

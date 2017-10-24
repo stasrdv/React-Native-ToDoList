@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        is-multidex="true"
+        jar="/Users/StasRudevitsky/.gradle/caches/modules-2/files-2.1/com.squareup.okhttp3/okhttp/3.6.0/69edde9fc4b01c9fd51d25b83428837478c27254/okhttp-3.6.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="69edde9fc4b01c9fd51d25b83428837478c27254">
+        <dex dex="/Users/StasRudevitsky/Desktop/TodoList_RN/React-Native-ToDoList/android/app/build/intermediates/transforms/dex/debug/folders/1000/10/okhttp-3.6.0_41e6bc05c18ba7becb5c80241848e24b8400ee1b/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/StasRudevitsky/Desktop/TodoList_RN/React-Native-ToDoList/android/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="fb5d678f551eb7dfe1eff42097a8d8573e61f297">
+        <dex dex="/Users/StasRudevitsky/Desktop/TodoList_RN/React-Native-ToDoList/android/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run-bootstrap_9413f9465e87cdb90d90afee28374f1fc3ca6722/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/StasRudevitsky/.android/build-cache/7b6a4d74833daee5c89b287261aec14336436ba9/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="f90b593491e4044903f0bbf68dc3fa2790b151b9">
+        <dex dex="/Users/StasRudevitsky/Desktop/TodoList_RN/React-Native-ToDoList/android/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_82e9a8ff63070848b73f00c18df901423189fc03/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/StasRudevitsky/.gradle/caches/modules-2/files-2.1/com.google.code.findbugs/jsr305/3.0.0/5871fb60dc68d67da54a663c3fd636a10a532948/jsr305-3.0.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="5871fb60dc68d67da54a663c3fd636a10a532948">
+        <dex dex="/Users/StasRudevitsky/Desktop/TodoList_RN/React-Native-ToDoList/android/app/build/intermediates/transforms/dex/debug/folders/1000/10/jsr305-3.0.0_45a9cff33848a818907e56b84218ce3abd444f05/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/StasRudevitsky/.android/build-cache/d5b416914d08a3de72c096de3cad0204580f49e1/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="c65a2e39d54023bac3aef64a2f0cff89289c7ff6">
+        <dex dex="/Users/StasRudevitsky/Desktop/TodoList_RN/React-Native-ToDoList/android/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_e968b577269ed993539bdb260f71cf7a1fd8570b/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/StasRudevitsky/.gradle/caches/modules-2/files-2.1/com.facebook.fbui.textlayoutbuilder/staticlayout-proxy/1.0/f162442a19fff13995fbd51ba414d9ee05579080/staticlayout-proxy-1.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="f162442a19fff13995fbd51ba414d9ee05579080">
+        <dex dex="/Users/StasRudevitsky/Desktop/TodoList_RN/React-Native-ToDoList/android/app/build/intermediates/transforms/dex/debug/folders/1000/10/staticlayout-proxy-1.0_76890a9a97c9cef1f596062cacc613d3b6644fad/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/StasRudevitsky/.gradle/caches/modules-2/files-2.1/com.squareup.okhttp3/okhttp-urlconnection/3.6.0/3f9b16b774f2c36cfd86dd2053d0b3059531dacc/okhttp-urlconnection-3.6.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="3f9b16b774f2c36cfd86dd2053d0b3059531dacc">
+        <dex dex="/Users/StasRudevitsky/Desktop/TodoList_RN/React-Native-ToDoList/android/app/build/intermediates/transforms/dex/debug/folders/1000/10/okhttp-urlconnection-3.6.0_8ab630305c582c2253faffa85e3e235d01ad2d93/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/StasRudevitsky/.gradle/caches/modules-2/files-2.1/javax.inject/javax.inject/1/6975da39a7040257bd51d21a231b76c915872d38/javax.inject-1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="6975da39a7040257bd51d21a231b76c915872d38">
+        <dex dex="/Users/StasRudevitsky/Desktop/TodoList_RN/React-Native-ToDoList/android/app/build/intermediates/transforms/dex/debug/folders/1000/10/javax.inject-1_87c0c667e595295c9df981cf91f6ed8897827c03/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/StasRudevitsky/.android/build-cache/587d9ed071557e65361ef20199321804bfdfabd2/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="e013739f7ddb6740bf196dc515d8999a6030f9ea">
+        <dex dex="/Users/StasRudevitsky/Desktop/TodoList_RN/React-Native-ToDoList/android/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_1e81d04e3c86609f6bbb7d34fe0e3991353f901f/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/StasRudevitsky/.android/build-cache/21e1ab1e56c978c0f33f55df9a21a6a1f46a6340/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="48c7f54c2515a2312d3a4481d10c43fbb807f3af">
+        <dex dex="/Users/StasRudevitsky/Desktop/TodoList_RN/React-Native-ToDoList/android/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_52024cee042a843592ce33a67c9f945a8b3fdecb/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/StasRudevitsky/.android/build-cache/145f2b37ff8d9c2f1c240874a08200d036c7616f/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="72128af126ddd7d6252da9357fe560d3abcdfb0c">
+        <dex dex="/Users/StasRudevitsky/Desktop/TodoList_RN/React-Native-ToDoList/android/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_f38e6af676f9466554a84f602a50400b791787a4/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/StasRudevitsky/.gradle/caches/modules-2/files-2.1/com.squareup.okio/okio/1.13.0/a9283170b7305c8d92d25aff02a6ab7e45d06cbe/okio-1.13.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="a9283170b7305c8d92d25aff02a6ab7e45d06cbe">
+        <dex dex="/Users/StasRudevitsky/Desktop/TodoList_RN/React-Native-ToDoList/android/app/build/intermediates/transforms/dex/debug/folders/1000/10/okio-1.13.0_675e934f75dbc87dca5c89fdab74501a07ce4bc3/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/StasRudevitsky/.android/build-cache/690f54d9e9bb9571709970aa2bee55f1852c2091/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="c03c08c9934b23c8c09c803345ec51a74119127b">
+        <dex dex="/Users/StasRudevitsky/Desktop/TodoList_RN/React-Native-ToDoList/android/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_38d0ecb2522415d2335d25e51c4310d6dadaf392/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/StasRudevitsky/Desktop/TodoList_RN/React-Native-ToDoList/android/app/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="3be78ebc2706b2e1fe2f12d5726887a92d6c183b">
+        <dex dex="/Users/StasRudevitsky/Desktop/TodoList_RN/React-Native-ToDoList/android/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run_7950397b169b5999091fbd6362a049a228268b0d/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/StasRudevitsky/.android/build-cache/da03c4185b070203fb2493df0807ff78494e7d99/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="37345de2ed2772f385eaeec37a9c2ff0fea99ad7">
+        <dex dex="/Users/StasRudevitsky/Desktop/TodoList_RN/React-Native-ToDoList/android/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_568b3570a9e6014d6905d6639020709363b6d27c/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/StasRudevitsky/.android/build-cache/587d9ed071557e65361ef20199321804bfdfabd2/output/jars/libs/infer-annotations-4.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="9809e90be788acdb479b2b44e2112f3295a03068">
+        <dex dex="/Users/StasRudevitsky/Desktop/TodoList_RN/React-Native-ToDoList/android/app/build/intermediates/transforms/dex/debug/folders/1000/10/infer-annotations-4.0_0c839c225b7d443ed44f29e26ab4161981d404da/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/StasRudevitsky/.gradle/caches/modules-2/files-2.1/com.parse.bolts/bolts-tasks/1.4.0/d85884acf6810a3bbbecb587f239005cbc846dc4/bolts-tasks-1.4.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="d85884acf6810a3bbbecb587f239005cbc846dc4">
+        <dex dex="/Users/StasRudevitsky/Desktop/TodoList_RN/React-Native-ToDoList/android/app/build/intermediates/transforms/dex/debug/folders/1000/10/bolts-tasks-1.4.0_93ef72b2a51365008cab507122fc59fd58950ac8/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/StasRudevitsky/.android/build-cache/4417c7d56f09c3bf1686ba156f7c517dc3a8b3cf/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="fe85b87215e405f5917d40ae4960488ac9224b74">
+        <dex dex="/Users/StasRudevitsky/Desktop/TodoList_RN/React-Native-ToDoList/android/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_9d6faa253a201df684fa2f4b2039ef918159cc68/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/StasRudevitsky/.android/build-cache/134bbcef7086eedca017426de1c49eedd30b6b3e/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="8f615bca00639150c9eb6175d4b5471193f70794">
+        <dex dex="/Users/StasRudevitsky/Desktop/TodoList_RN/React-Native-ToDoList/android/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_5a6d3cf10f8255df67bcf1f67ebd5b28480b45e2/classes.dex" />
+    </item>
+
+</items>

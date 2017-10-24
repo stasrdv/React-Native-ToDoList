@@ -23,18 +23,20 @@ export default class LoginIOS extends React.Component {
 
   }
 
+  
   componentDidMount() {
+    
     Animated.sequence([
       Animated.spring(this.state.position, {
         toValue: { x: width, y: 0 },
         tension: 5
 
       }),
-
     ]).start();
   }
 
   login = (email, pass) => {
+    
     return fetch('http://todos.moonsite.co.il/api/login', {
       method: 'POST', headers: {
         'Accept': 'application/json',
@@ -44,15 +46,13 @@ export default class LoginIOS extends React.Component {
         email: email,
         password: pass
 
-        // email:"mor@test.com",
-        // password:"1234"
-
       })
     })
 
       .then((response) => response.json())
    
       .then((responseJson) => {
+        
         this.imaFadegeAnimation();
         AsyncStorage.setItem("token", responseJson.token).then(()=>{
           navigate('todoListview')
@@ -62,6 +62,7 @@ export default class LoginIOS extends React.Component {
 
       })
       .catch((error) => {
+        
         alert('Wrong Email or Password')
         this.imageShakeAnimation() 
       
@@ -123,9 +124,10 @@ export default class LoginIOS extends React.Component {
       <View>
    
         <Animated.View style={{ transform: [{ translateY: position.y }] }} >
-          <Image source={require('../assets/chenurashka.png')} style={image} />
+          <Image source={require('../assets/logo.png')} style={image} />
         </Animated.View>
-        <Inputs login={this.login} />
+        <Inputs login={this.login}
+          />
       </View>
     );
   }
@@ -140,7 +142,7 @@ const styles = StyleSheet.create({
 
   },
   image: {
-
+    left:35,
     width: 300,
     height: 300,
 

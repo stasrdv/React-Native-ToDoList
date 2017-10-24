@@ -1,0 +1,4 @@
+#Tue Oct 24 12:06:52 IDT 2017
+base.0=/Users/StasRudevitsky/Desktop/TodoList_RN/React-Native-ToDoList/android/app/build/intermediates/transforms/dex/debug/folders/1000/5/slice_4
+renamed.0=classes.dex
+file.0=/Users/StasRudevitsky/Desktop/TodoList_RN/React-Native-ToDoList/android/app/build/intermediates/transforms/dex/debug/folders/1000/5/slice_4/classes.dex

@@ -1,0 +1,7 @@
+#Tue Oct 24 12:27:08 IDT 2017
+base.0=/Users/StasRudevitsky/Desktop/TodoList_RN/React-Native-ToDoList/android/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run-bootstrap_9413f9465e87cdb90d90afee28374f1fc3ca6722
+renamed.1=classes.dex
+renamed.0=classes2.dex
+file.1=/Users/StasRudevitsky/Desktop/TodoList_RN/React-Native-ToDoList/android/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run_7950397b169b5999091fbd6362a049a228268b0d/classes.dex
+base.1=/Users/StasRudevitsky/Desktop/TodoList_RN/React-Native-ToDoList/android/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run_7950397b169b5999091fbd6362a049a228268b0d
+file.0=/Users/StasRudevitsky/Desktop/TodoList_RN/React-Native-ToDoList/android/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run-bootstrap_9413f9465e87cdb90d90afee28374f1fc3ca6722/classes.dex

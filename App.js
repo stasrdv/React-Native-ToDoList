@@ -7,6 +7,7 @@ import LoginRender from './components/LoginRender'
 import todoListview from './components/todoListview'
 import LoginAndroid from './components/LoginAndroid'
 import cameraComponent  from './components/cameraComponent'
+import registerComponent from './components/registerComponent'
 
 
 
@@ -14,7 +15,6 @@ export default class App extends React.Component {
 
   render() {
     return (
-      
       <AppRouter></AppRouter>
     );
   }
@@ -23,7 +23,8 @@ export default class App extends React.Component {
 export const AppRouter = StackNavigator({
   LoginRender: { screen: LoginRender },
   todoListview: { screen: todoListview },
-  cameraComponent:{screen:cameraComponent}
+  cameraComponent:{screen:cameraComponent},
+  registerComponent:{screen:registerComponent}
  
 });
 

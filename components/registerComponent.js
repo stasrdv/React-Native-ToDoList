@@ -6,7 +6,8 @@ import {
     View, AsyncStorage
 } from 'react-native'
 import Inputs from './Inputs'
-import RadioForm, { RadioButton, RadioButtonInput, RadioButtonLabel } from 'react-native-simple-radio-button'
+
+
 export default class registerComponent extends React.Component {
     constructor() {
 

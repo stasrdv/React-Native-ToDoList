@@ -8,7 +8,8 @@ import {
 import {
   StackNavigator,
 } from 'react-navigation';
-import { SwipeableFlatList,SwipeableListItem } from 'react-native-swipeable-flat-list';
+import { SwipeableFlatList, SwipeableListItem } from 'react-native-swipeable-flat-list';
+import Swipeout from 'react-native-swipeout';
 
 class todoListview extends React.Component {
 
@@ -19,9 +20,10 @@ class todoListview extends React.Component {
       taskList: [],
       token: '',
       task: '',
-      order: ''
+      id:''
 
     }
+    this.deleteSelectedtask = this.deleteSelectedtask.bind(this)
   }
 
   componentDidMount() {
@@ -42,7 +44,6 @@ class todoListview extends React.Component {
       this.getTasks()
     }).done();
   }
-
 
   newTask = () => {
 
@@ -78,9 +79,7 @@ class todoListview extends React.Component {
   handleTask = (text) => {
     this.setState({ task: text })
   }
-  handleOrder = (text) => {
-    this.setState({ order: text })
-  }
+
   getTasks = () => {
     fetch('http://todos.moonsite.co.il/api/tasks', {
       method: 'GET', headers: {
@@ -92,7 +91,6 @@ class todoListview extends React.Component {
     })
       .then((response) => response.json())
       .then((responseJson) => {
-        //   console.log(responseJson)
         this.setState({
           taskList: responseJson.tasks
         })
@@ -104,11 +102,47 @@ class todoListview extends React.Component {
 
   }
 
+  deleteSelectedtask=() =>{
+    
+   alert('Task Was Deleted')
+
+    fetch('http://todos.moonsite.co.il/api/tasks/'+this.state.id, {
+      method: 'DELETE', headers: {
+        'Accept': 'application/json',
+        'Authorization': this.state.token,
+        'Content-Type': 'application/json',
+      },
+
+    })
+      .then((response) => response.json())
+      .then((responseJson) => {
+      this.getTasks()
+
+      })
+      .catch((error) => {
+
+      });
+
+  }
+  
   render() {
     const { fadeAnim } = this.state;
     const { container } = styles;
     const { navigate } = this.props.navigation;
 
+
+    var deleteButton = [
+      {
+        text: 'Delete',
+        borderColor: '#346CB8',
+        borderWidth: 1,
+        backgroundColor: '#C32C31',
+        underlayColor: '#2E78A3',
+        onPress: () => { 
+          this.deleteSelectedtask();
+        },
+      }
+    ]
     return (
       <View>
         <Animated.View style={[container, { opacity: fadeAnim }]}>
@@ -116,8 +150,7 @@ class todoListview extends React.Component {
           <TextInput style={styles.inputTask}
             underlineColorAndroid="transparent"
             placeholder="New Task"
-            placeholderTextColor="#9a73ef"
-            autoCapitalize="none"
+            placeholderTextColor="#346CB8"
             onChangeText={this.handleTask}
           />
           <TouchableOpacity
@@ -128,30 +161,22 @@ class todoListview extends React.Component {
             }>
             <Text style={styles.submitButtonText}> Add New task </Text>
           </TouchableOpacity>
-
-
-      
-          <SwipeableFlatList
-          
+          <FlatList
             data={this.state.taskList}
-            
-            renderItem={({ item }) => (
-              <Text style={styles.item}>{item.task}</Text>
-            )}
-            renderLeft={({ item }) => (
-              <Text style={styles.left}
-              >EDIT</Text>
+            renderItem={({ item }) =>
+              <Swipeout
+                onOpen={()=>
+                this.setState({'id':item._id})
               
-            )}
-            renderRight={({ item }) => (
-              <Text style={styles.right}
-              
-              >DELETE</Text>
-              
-            )}
-            backgroundColor={'white'}
-            
-          />
+                }
+                autoClose={true}
+                buttonWidth={100}
+                right={deleteButton}>
+                <View>
+                  <Text style={styles.item}>{item.task}</Text>
+                </View>
+              </Swipeout>
+            } />
 
         </Animated.View>
 
@@ -165,34 +190,12 @@ const styles = StyleSheet.create({
   item: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    alignItems: 'center',
-    padding: 30,
-    margin: 2,
-    borderColor: '#346CB8',
-    borderWidth: 1,
-    backgroundColor: '#CCC6C6'
-  },
-  left: {
 
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
     padding: 30,
     margin: 2,
     borderColor: '#346CB8',
     borderWidth: 1,
-    backgroundColor: '#EFE32A'
-  },
-  right: {
-   
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    padding: 30,
-    margin: 2,
-    borderColor: '#346CB8',
-    borderWidth: 1,
-    backgroundColor: '#C32C31'
+    backgroundColor: '#e6e4e2'
   },
   input: {
     margin: 15,

@@ -5,7 +5,7 @@ import {
   StyleSheet,
   Text,
   TouchableHighlight,
-  View,WebView
+  View, WebView
 } from 'react-native';
 import Camera from 'react-native-camera';
 
@@ -18,37 +18,62 @@ export default class cameraComponent extends Component {
     this.state = {
       torchMode: 'off',
       cameraType: 'back',
-      url:'',
-      barcodetype:''
+      url: '',
+      isCameroOpen: true,
     }
 
-    this.barcodeReceived=this.barcodeReceived.bind(this)
+    this.barcodeReceived = this.barcodeReceived.bind(this)
   }
 
   barcodeReceived(e) {
-   
-    if(e.data.length>1){
-     this.setState({url:e.data})
-     
-    
+
+    if (e.data.length > 1) {
+      this.setState({ url: e.data })
+
+
     }
-  
+
+  }
+
+  toggleWebView(){
+
+  }
+  toggleCamera() {
+    if (this.state.url) {
+      return {
+        wiidth: 0,
+        height: 0
+      }
+    }
+    else {
+      return {
+        height: 200,
+        width: 200,
+        left: 90,
+        top: 180,
+        borderWidth: 2,
+        borderColor: '#00FF00',
+        backgroundColor: 'transparent'
+      }
+    }
+
   }
 
   render() {
     return (
       <View style={styles.container}>
-<Text>WELCOME TO WebView</Text>
-        <WebView
-            style={styles.webview}
-            source = {{ uri: 
-               this.state.url}}
-         /> 
-         <Camera
+
+        {/* <WebView
+          
+          source={{
+            uri:this.state.url
+          }}
+        /> */}
+        <Camera
           ref={cam => this.camera = cam}
           aspect={Camera.constants.Aspect.fill}
           onBarCodeRead={this.barcodeReceived}
-          style={ styles.rectangle }
+          style={this.toggleCamera()}
           torchMode={this.state.torchMode}
           cameraType={this.state.cameraType}
         >
@@ -62,24 +87,20 @@ export default class cameraComponent extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-  
+
   },
   webview: {
-    height: 350,
- },
 
-rectangle: {
-  height: 250,
-  width: 250,
-  left:55,
-  borderWidth: 2,
-  alignItems: 'center',
-  borderColor: '#00FF00',
-  backgroundColor: 'transparent'
-},
-  preview: {
-    flex: 1,
-    justifyContent: 'flex-end',
-    alignItems: 'center'
-  }
+  },
+
+  rectangle: {
+    height: 200,
+    width: 200,
+    left: 90,
+    top: 180,
+    borderWidth: 2,
+    borderColor: '#00FF00',
+    backgroundColor: 'transparent'
+  },
+
 });

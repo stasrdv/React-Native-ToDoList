@@ -33,7 +33,7 @@ class Inputs extends Component {
       textLength: text.length,
     });
     text.length >= 4  ? this.setState({isPassworValid:true}):this.setState({isPassworValid:false})
-
+    
   }
 
 
@@ -103,13 +103,10 @@ class Inputs extends Component {
 
   }
   inputValidator(){
-
-    
     if(this.state.isEmailValid && this.state.isPassworValid){
       
       return false 
     }
-    console.log(this.state)
     return true
     
   }

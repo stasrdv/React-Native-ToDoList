@@ -4,13 +4,13 @@ import {
   StyleSheet,
   Text,
   View,
-  Animated, Easing, Dimensions, Image, Button, AsyncStorage
+  Animated, Easing, Dimensions, Image, Button, AsyncStorage, KeyboardAvoidingView
 } from 'react-native'
 const { height, width } = Dimensions.get('window');
 import Inputs from './Inputs'
 import Moment from 'react-moment';
 import 'moment-timezone';
-
+import Spinner from 'react-native-loading-spinner-overlay';
 
 export default class LoginIOS extends React.Component {
 
@@ -19,6 +19,7 @@ export default class LoginIOS extends React.Component {
     super(props);
     this.state = {
       position: new Animated.ValueXY({ x: width, y: -height }),
+      visible:false
     }
     const navigate = props.navigation;
 
@@ -37,26 +38,25 @@ export default class LoginIOS extends React.Component {
   }
 
   login = (email, pass) => {
-
+    this.setState({visible:true})
     return fetch('http://todos.moonsite.co.il/api/login', {
       method: 'POST', headers: {
         'Accept': 'application/json',
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        // email: email,
-        // password: pass
+        email: email,
+        password: pass
 
-        email: "mor@test.com",
-        password: "1234"
+
       })
     })
 
       .then((response) => response.json())
 
-      .then((responseJson) => {
-
+      .then((responseJson) => {       
         this.imaFadegeAnimation();
+        this.setState({visible:false}) 
         AsyncStorage.setItem("token", responseJson.token).then(() => {
           navigate('todoListview')
         })
@@ -122,8 +122,10 @@ export default class LoginIOS extends React.Component {
     const { image, container } = styles;
 
     return (
-      <View>
-     <Button
+      <KeyboardAvoidingView
+        behavior="padding">
+
+        <Button
           onPress={
             () => navigate('cameraComponent')
           }
@@ -131,11 +133,13 @@ export default class LoginIOS extends React.Component {
           color="#008CBA"
           backgroundColor='#008CBA'
         />
+
         <Animated.View style={{ transform: [{ translateY: position.y }] }} >
+        <Spinner visible={this.state.visible} textContent={"Loading..."} textStyle={{color: '#2E78A3'}} />
           <Image source={require('../assets/logo.png')} style={image} />
         </Animated.View>
-        <Inputs login={this.login}
-        />
+
+        <Inputs login={this.login} />
         <Button
           style={styles.submitButton}
           onPress={
@@ -144,7 +148,7 @@ export default class LoginIOS extends React.Component {
           title="Register"
 
         />
-      </View>
+      </KeyboardAvoidingView>
     );
   }
 }

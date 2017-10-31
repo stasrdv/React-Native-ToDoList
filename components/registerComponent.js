@@ -3,7 +3,7 @@ import {
     AppRegistry,
     StyleSheet,
     Text,
-    View, AsyncStorage
+    View, AsyncStorage,Image
 } from 'react-native'
 import Inputs from './Inputs'
 
@@ -61,20 +61,24 @@ export default class registerComponent extends React.Component {
 
         return (
             <View>
-
-                {/* <RadioForm
-                    radio_props={radio_props}
-                    initial={0}
-                    onPress={(value) => { this.setState({ value: value }) }}
-                /> */}
-
-
+             <Image source={require('../assets/user.png')} style={styles.image} />
                 <Inputs login={this.register} />
             </View>
 
         );
     }
 }
+const styles = StyleSheet.create({
+    
+    image: {
+      left: 80,
+      width: 200,
+      height: 200,
+  
+    },
+  
+  })
+  
 
 
 

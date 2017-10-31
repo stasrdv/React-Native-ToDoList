@@ -19,7 +19,7 @@ export default class LoginIOS extends React.Component {
     super(props);
     this.state = {
       position: new Animated.ValueXY({ x: width, y: -height }),
-      visible:false
+      visible: false
     }
     const navigate = props.navigation;
 
@@ -27,7 +27,6 @@ export default class LoginIOS extends React.Component {
 
 
   componentDidMount() {
-
     Animated.sequence([
       Animated.spring(this.state.position, {
         toValue: { x: width, y: 0 },
@@ -38,7 +37,7 @@ export default class LoginIOS extends React.Component {
   }
 
   login = (email, pass) => {
-    this.setState({visible:true})
+    this.setState({ visible: true })
     return fetch('http://todos.moonsite.co.il/api/login', {
       method: 'POST', headers: {
         'Accept': 'application/json',
@@ -48,25 +47,32 @@ export default class LoginIOS extends React.Component {
         email: email,
         password: pass
 
-
       })
     })
 
-      .then((response) => response.json())
-
-      .then((responseJson) => {       
-        this.imaFadegeAnimation();
-        this.setState({visible:false}) 
-        AsyncStorage.setItem("token", responseJson.token).then(() => {
-          navigate('todoListview')
-        })
-
-
+      .then((response) => response.json()) 
+      .then((responseJson) => {
+        if(responseJson!="email or password mismatch"){
+          this.imaFadegeAnimation();
+          this.setState({ visible:false })
+          AsyncStorage.setItem("token", responseJson.token).then(() => {
+            navigate('todoListview')
+          })
+        }
+        else{
+          this.imageShakeAnimation()
+          this.setState({ visible: false })
+          
+        }
+      
+      
+  
+    
+   
 
       })
       .catch((error) => {
-
-        alert('Wrong Email or Password')
+        alert('CONNECTION ERROR')
         this.imageShakeAnimation()
 
 
@@ -135,7 +141,7 @@ export default class LoginIOS extends React.Component {
         />
 
         <Animated.View style={{ transform: [{ translateY: position.y }] }} >
-        <Spinner visible={this.state.visible} textContent={"Loading..."} textStyle={{color: '#2E78A3'}} />
+          <Spinner visible={this.state.visible} textContent={"Loading..."} textStyle={{ color: '#2E78A3' }} />
           <Image source={require('../assets/logo.png')} style={image} />
         </Animated.View>
 

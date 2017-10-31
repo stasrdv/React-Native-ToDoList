@@ -18,7 +18,8 @@ export default class cameraComponent extends Component {
     this.state = {
       torchMode: 'off',
       cameraType: 'back',
-      url:''
+      url:'',
+      barcodetype:''
     }
 
     this.barcodeReceived=this.barcodeReceived.bind(this)
@@ -37,7 +38,7 @@ export default class cameraComponent extends Component {
   render() {
     return (
       <View style={styles.container}>
-
+<Text>WELCOME TO WebView</Text>
         <WebView
             style={styles.webview}
             source = {{ uri: 

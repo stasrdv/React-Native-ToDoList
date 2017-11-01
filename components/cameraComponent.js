@@ -16,7 +16,6 @@ export default class cameraComponent extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      torchMode: 'off',
       cameraType: 'back',
       url: '',
       isCameroOpen: true,
@@ -29,55 +28,43 @@ export default class cameraComponent extends Component {
 
     if (e.data.length > 1) {
       this.setState({ url: e.data })
-
+      this.setState({isCameroOpen:false})
 
     }
 
   }
-
-  toggleWebView(){
-
-  }
-  toggleCamera() {
-    if (this.state.url) {
-      return {
-        wiidth: 0,
-        height: 0
-      }
+  renderIf(condition, content) {
+    if (condition) {
+      return content;
+    } else {
+      return null;
     }
-    else {
-      return {
-        height: 200,
-        width: 200,
-        left: 90,
-        top: 180,
-        borderWidth: 2,
-        borderColor: '#00FF00',
-        backgroundColor: 'transparent'
-      }
-    }
-
   }
+
 
   render() {
     return (
       <View style={styles.container}>
+     
+        {this.renderIf(this.state.isCameroOpen,
+          <Camera
+            hidden={true}
+            ref={cam => this.camera = cam}
+            aspect={Camera.constants.Aspect.fill}
+            onBarCodeRead={this.barcodeReceived}
+            style={styles.rectangle}
+            cameraType={this.state.cameraType}>
+          </Camera>
+        )}
 
-        {/* <WebView
-          
-          source={{
-            uri:this.state.url
-          }}
-        /> */}
-        <Camera
-          ref={cam => this.camera = cam}
-          aspect={Camera.constants.Aspect.fill}
-          onBarCodeRead={this.barcodeReceived}
-          style={this.toggleCamera()}
-          torchMode={this.state.torchMode}
-          cameraType={this.state.cameraType}
-        >
-        </Camera>
+        {this.renderIf(!this.state.isCameroOpen,
+          <WebView
+            source={{
+              uri: this.state.url
+            }}
+          />
+        )}
+
       </View>
     )
   }

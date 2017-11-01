@@ -16,6 +16,7 @@
     "react-native-busy-indicator": "^1.1.0",
     "react-native-camera": "git+https://github.com/lwansbrough/react-native-camera.git",
     "react-native-datepicker": "^1.6.0",
+    "react-native-hideable-view": "^1.0.3",
     "react-native-loading-spinner-overlay": "^0.5.2",
     "react-native-modal": "^4.1.1",
     "react-native-radio-button": "^2.0.1",

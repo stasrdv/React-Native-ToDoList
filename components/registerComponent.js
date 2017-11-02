@@ -3,26 +3,24 @@ import {
     AppRegistry,
     StyleSheet,
     Text,
-    View, AsyncStorage,Image
+    View, AsyncStorage, Image
 } from 'react-native'
 import Inputs from './Inputs'
-
-
+import Spinner from 'react-native-loading-spinner-overlay';
 export default class registerComponent extends React.Component {
-    constructor() {
 
+    constructor() {
         super();
 
-        state = {
-            value: ''
+        this.state = {
+            value: '',
+            visible: false
         }
-        radio_props = [
-            { label: 'Male', value: 0 },
-            { label: 'Female', value: 1 }
-        ];
+
     }
 
     register = (email, pass) => {
+        this.setState({ visible: true })
         return fetch('http://todos.moonsite.co.il/api/register', {
             method: 'POST', headers: {
                 'Accept': 'application/json',
@@ -36,8 +34,8 @@ export default class registerComponent extends React.Component {
         })
 
             .then((response) => response.json())
-
             .then((responseJson) => {
+                this.setState({ visible: false })
                 AsyncStorage.setItem("token", responseJson.token).then(() => {
                     navigate('todoListview')
                 })
@@ -45,13 +43,9 @@ export default class registerComponent extends React.Component {
 
             })
             .catch((error) => {
-
                 alert('User already Exists')
 
-
-
             });
-
 
 
     }
@@ -61,7 +55,8 @@ export default class registerComponent extends React.Component {
 
         return (
             <View>
-             <Image source={require('../assets/user.png')} style={styles.image} />
+                <Spinner visible={this.state.visible} textContent={"Loading..."} textStyle={{ color: '#2E78A3' }} />
+                <Image source={require('../assets/user.png')} style={styles.image} />
                 <Inputs login={this.register} />
             </View>
 
@@ -69,16 +64,16 @@ export default class registerComponent extends React.Component {
     }
 }
 const styles = StyleSheet.create({
-    
+
     image: {
-      left: 80,
-      width: 200,
-      height: 200,
-  
+        left: 80,
+        width: 200,
+        height: 200,
+
     },
-  
-  })
-  
+
+})
+
 
 
 

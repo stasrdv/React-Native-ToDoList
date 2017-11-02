@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { View, Text, TouchableOpacity, TextInput, StyleSheet, AsyncStorage, Button,KeyboardAvoidingView } from 'react-native'
+import { View, Text, TouchableOpacity, TextInput, StyleSheet, AsyncStorage, Button, KeyboardAvoidingView } from 'react-native'
 
 
 
@@ -12,11 +12,10 @@ class Inputs extends Component {
       email: '',
       password: '',
       textLength: 0,
-      isEmailValid:false,
-      isPassworValid:false
-
+      isEmailValid: false,
+      isPassworValid: false
     }
-    this.inputValidator=this.inputValidator.bind(this)
+    this.inputValidator = this.inputValidator.bind(this)
   }
 
 
@@ -24,7 +23,7 @@ class Inputs extends Component {
 
   handleEmail = (text) => {
     this.setState({ email: text })
-    this.validateEmail(this.state.email) ? this.setState({isEmailValid:true}):this.setState({isEmailValid:false})
+    this.validateEmail(this.state.email) ? this.setState({ isEmailValid: true }) : this.setState({ isEmailValid: false })
   }
 
   handlePassword(text) {
@@ -32,8 +31,8 @@ class Inputs extends Component {
     this.setState({
       textLength: text.length,
     });
-    text.length >= 4  ? this.setState({isPassworValid:true}):this.setState({isPassworValid:false})
-    
+    text.length >= 4 ? this.setState({ isPassworValid: true }) : this.setState({ isPassworValid: false })
+
   }
 
 
@@ -43,72 +42,46 @@ class Inputs extends Component {
   }
 
   validateEmailStyle() {
+    var dynamicBordercolor = 'blue'
     if (this.state.email.length > 0) {
       if (this.validateEmail(this.state.email)) {
-        return {
-          margin: 15,
-          height: 40,
-          borderColor: 'green',
-          borderWidth: 1
-        }
+        dynamicBordercolor = 'green'
       }
       else {
-        return {
-          margin: 15,
-          height: 40,
-          borderColor: 'red',
-          borderWidth: 1
-        }
+        dynamicBordercolor = 'red'
       }
     }
-    else{
-      return {
-        margin: 15,
-        height: 40,
-        borderColor: 'blue',
-        borderWidth: 1
-      }
+    return {
+      margin: 15,
+      height: 40,
+      borderColor: dynamicBordercolor,
+      borderWidth: 1
     }
-
 
   }
 
   validatePasswordStyle() {
-    if (this.state.textLength == 0) {
-      return {
-        margin: 15,
-        height: 40,
-        borderColor: 'blue',
-        borderWidth: 1
-      }
-    }
-    if (this.state.textLength < 4) {
-      return {
-        margin: 15,
-        height: 40,
-        borderColor: 'red',
-        borderWidth: 1
-      }
-    }
-    if (this.state.textLength >=4) {
-  
-      return {
-        
-        margin: 15,
-        height: 40,
-        borderColor: 'green',
-        borderWidth: 1
-      }
-    }
+    var dynamicBordercolor = 'blue'
 
+    if (this.state.textLength < 4 && this.state.textLength!=0 ) {
+      dynamicBordercolor = 'red'
+    }
+    if (this.state.textLength >= 4) {
+      dynamicBordercolor = 'green'
+
+    }
+    return {
+      margin: 15,
+      height: 40,
+      borderColor: dynamicBordercolor,
+      borderWidth: 1
+    }
   }
-  inputValidator(){
-    if(this.state.isEmailValid && this.state.isPassworValid){
-      
-      return false 
+  inputValidator() {
+    if (this.state.isEmailValid && this.state.isPassworValid) {
+      return false
     }
     return true
-    
   }
 
 
@@ -116,7 +89,7 @@ class Inputs extends Component {
 
     return (
       <View style={styles.container}>
-      
+
         <TextInput
           style={this.validateEmailStyle()}
           onChangeText={this.handleEmail.bind(this)}
@@ -129,6 +102,7 @@ class Inputs extends Component {
           style={this.validatePasswordStyle()}
           underlineColorAndroid="transparent"
           placeholder="Password"
+          secureTextEntry={true} 
           placeholderTextColor="#12303A"
           autoCapitalize="none"
           onChangeText={this.handlePassword.bind(this)}

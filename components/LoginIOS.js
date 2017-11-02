@@ -31,7 +31,6 @@ export default class LoginIOS extends React.Component {
       Animated.spring(this.state.position, {
         toValue: { x: width, y: 0 },
         tension: 5
-
       }),
     ]).start();
   }
@@ -64,22 +63,11 @@ export default class LoginIOS extends React.Component {
           this.setState({ visible: false })
           
         }
-      
-      
-  
-    
-   
-
       })
       .catch((error) => {
         alert('CONNECTION ERROR')
         this.imageShakeAnimation()
-
-
       });
-
-
-
   }
 
   imaFadegeAnimation() {
@@ -88,19 +76,13 @@ export default class LoginIOS extends React.Component {
         toValue: { x: width, y: height },
         tension: 10
       }),
-
-
-
     ]).start();
-
   }
 
 
   imageShakeAnimation() {
-
     Animated.sequence([
       // Animated.spring(this.state.position, {
-
       Animated.spring(this.state.position, {
         toValue: { x: width, y: height / 6 },
         //bounciness:12,
@@ -120,7 +102,6 @@ export default class LoginIOS extends React.Component {
       }),
 
     ]).start();
-
   }
 
   render() {
@@ -142,12 +123,12 @@ export default class LoginIOS extends React.Component {
 
         <Animated.View style={{ transform: [{ translateY: position.y }] }} >
           <Spinner visible={this.state.visible} textContent={"Loading..."} textStyle={{ color: '#2E78A3' }} />
-          <Image source={require('../assets/logo.png')} style={image} />
+          <Image source={require('../assets/logo.png')} style={styles.image} />
         </Animated.View>
 
         <Inputs login={this.login} />
         <Button
-          style={styles.submitButton}
+          
           onPress={
             () => navigate('registerComponent')
           }

@@ -20,7 +20,7 @@ class todoListview extends React.Component {
       taskList: [],
       token: '',
       task: '',
-      id:''
+      id: ''
 
     }
     this.deleteSelectedtask = this.deleteSelectedtask.bind(this)
@@ -102,11 +102,8 @@ class todoListview extends React.Component {
 
   }
 
-  deleteSelectedtask=() =>{
-    
-   alert('Task Was Deleted')
-
-    fetch('http://todos.moonsite.co.il/api/tasks/'+this.state.id, {
+  deleteSelectedtask = () => {
+    fetch('http://todos.moonsite.co.il/api/tasks/' + this.state.id, {
       method: 'DELETE', headers: {
         'Accept': 'application/json',
         'Authorization': this.state.token,
@@ -116,7 +113,8 @@ class todoListview extends React.Component {
     })
       .then((response) => response.json())
       .then((responseJson) => {
-      this.getTasks()
+        alert('Task Was Deleted')
+        this.getTasks()
 
       })
       .catch((error) => {
@@ -124,13 +122,11 @@ class todoListview extends React.Component {
       });
 
   }
-  
+
   render() {
     const { fadeAnim } = this.state;
     const { container } = styles;
     const { navigate } = this.props.navigation;
-
-
     var deleteButton = [
       {
         text: 'Delete',
@@ -138,7 +134,7 @@ class todoListview extends React.Component {
         borderWidth: 1,
         backgroundColor: '#C32C31',
         underlayColor: '#2E78A3',
-        onPress: () => { 
+        onPress: () => {
           this.deleteSelectedtask();
         },
       }
@@ -146,31 +142,24 @@ class todoListview extends React.Component {
     return (
       <View>
         <Animated.View style={[container, { opacity: fadeAnim }]}>
-
           <TextInput style={styles.inputTask}
             underlineColorAndroid="transparent"
             placeholder="New Task"
             placeholderTextColor="#346CB8"
-            onChangeText={this.handleTask}
-          />
+            onChangeText={this.handleTask}/>
           <TouchableOpacity
             style={styles.submitButton}
             onPress={
-              () => this.newTask()
-
-            }>
+              () => this.newTask()}>
             <Text style={styles.submitButtonText}> Add New task </Text>
           </TouchableOpacity>
           <FlatList
             data={this.state.taskList}
             renderItem={({ item }) =>
               <Swipeout
-                onOpen={()=>
-                this.setState({'id':item._id})
-              
+                onOpen={() =>
+                  this.setState({ 'id': item._id })
                 }
-                autoClose={true}
-                buttonWidth={100}
                 right={deleteButton}>
                 <View>
                   <Text style={styles.item}>{item.task}</Text>
@@ -179,7 +168,6 @@ class todoListview extends React.Component {
             } />
 
         </Animated.View>
-
       </View>
     )
   }
@@ -190,7 +178,6 @@ const styles = StyleSheet.create({
   item: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-
     padding: 30,
     margin: 2,
     borderColor: '#346CB8',

@@ -5,7 +5,6 @@ import {
 } from 'react-navigation';
 import LoginRender from './components/LoginRender'
 import todoListview from './components/todoListview'
-import LoginAndroid from './components/LoginAndroid'
 import cameraComponent  from './components/cameraComponent'
 import registerComponent from './components/registerComponent'
 

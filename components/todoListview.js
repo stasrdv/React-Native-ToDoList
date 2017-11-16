@@ -46,7 +46,7 @@ class todoListview extends React.Component {
   }
 
   newTask = () => {
-
+    
     fetch('http://todos.moonsite.co.il/api/tasks', {
       method: 'POST', headers: {
         'Accept': 'application/json',
@@ -61,7 +61,7 @@ class todoListview extends React.Component {
     })
       .then((response) => response.json())
       .then((responseJson) => {
-
+        
         this.getTasks();
 
       })
@@ -113,7 +113,7 @@ class todoListview extends React.Component {
     })
       .then((response) => response.json())
       .then((responseJson) => {
-        alert('Task Was Deleted')
+        
         this.getTasks()
 
       })
@@ -127,13 +127,13 @@ class todoListview extends React.Component {
     const { fadeAnim } = this.state;
     const { container } = styles;
     const { navigate } = this.props.navigation;
+
     var deleteButton = [
       {
         text: 'Delete',
-        borderColor: '#346CB8',
-        borderWidth: 1,
         backgroundColor: '#C32C31',
         underlayColor: '#2E78A3',
+        type:'delete',
         onPress: () => {
           this.deleteSelectedtask();
         },
@@ -141,6 +141,14 @@ class todoListview extends React.Component {
     ]
     return (
       <View>
+          <Button
+          onPress={
+            () => navigate('cameraComponent')
+          }
+          title="QR Scanner"
+          color="#008CBA"
+          backgroundColor='#008CBA'
+        />
         <Animated.View style={[container, { opacity: fadeAnim }]}>
           <TextInput style={styles.inputTask}
             underlineColorAndroid="transparent"
@@ -156,15 +164,21 @@ class todoListview extends React.Component {
           <FlatList
             data={this.state.taskList}
             renderItem={({ item }) =>
+            
               <Swipeout
                 onOpen={() =>
                   this.setState({ 'id': item._id })
                 }
+                buttonWidth={80}
+                autoClose={true}
                 right={deleteButton}>
                 <View>
-                  <Text style={styles.item}>{item.task}</Text>
+                  <Text style={styles.item}
+                  onPress={() => alert(item.created_at)}
+                  >{item.task}</Text>
                 </View>
               </Swipeout>
+              
             } />
 
         </Animated.View>

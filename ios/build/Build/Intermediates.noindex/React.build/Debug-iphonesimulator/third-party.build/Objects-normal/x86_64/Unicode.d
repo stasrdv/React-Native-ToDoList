@@ -1,3 +1,3 @@
 dependencies: \
-  /Users/StasRudevitsky/Desktop/TodoList_RN/React-Native-ToDoList/node_modules/react-native/third-party/folly-2016.09.26.00/folly/Unicode.cpp \
-  /Users/StasRudevitsky/Desktop/TodoList_RN/React-Native-ToDoList/node_modules/react-native/React/../third-party/folly-2016.09.26.00/folly/Unicode.h
+  /Users/StasRudevitsky/Desktop/React-Native-ToDoList/node_modules/react-native/third-party/folly-2016.09.26.00/folly/Unicode.cpp \
+  /Users/StasRudevitsky/Desktop/React-Native-ToDoList/node_modules/react-native/React/../third-party/folly-2016.09.26.00/folly/Unicode.h

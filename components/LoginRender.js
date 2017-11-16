@@ -4,35 +4,42 @@ import {
   StyleSheet,
   Text,
   View,
-  Platform,Button
+  Platform,Button,AsyncStorage
 } from 'react-native'
 
-import LoginAndroid from './LoginAndroid'
 import LoginIOS from './LoginIOS'
-
 
 
 export default class LoginRender extends React.Component {
  
+
+  componentDidMount() {
+    
+        AsyncStorage.getItem("token").then((value) => {
+         
+
+         if(value){
+           navigate('todoListview');
+         }
+        }).done();
+      }
+
+
+
+
     render () {
       navigate  = this.props.navigation.navigate;
       
       return (
 
         
-        <View style={welcomeTextStyle.container}>
-        {Platform.OS =='ios' ?  <LoginIOS navigation={navigate}/>:<LoginAndroid navigation={navigate}/>} 
+        <View >
+         <LoginIOS navigation={navigate}/>
         </View>
       );
     }
   }
-  const welcomeTextStyle = StyleSheet.create({
-    container: {
-      flex: 1,
-      backgroundColor: '#fff',
-      justifyContent: 'center',
-    },
-  });
+ 
   
 
   

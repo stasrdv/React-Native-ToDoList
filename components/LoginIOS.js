@@ -111,16 +111,6 @@ export default class LoginIOS extends React.Component {
     return (
       <KeyboardAvoidingView
         behavior="padding">
-
-        <Button
-          onPress={
-            () => navigate('cameraComponent')
-          }
-          title="QR Scanner"
-          color="#008CBA"
-          backgroundColor='#008CBA'
-        />
-
         <Animated.View style={{ transform: [{ translateY: position.y }] }} >
           <Spinner visible={this.state.visible} textContent={"Loading..."} textStyle={{ color: '#2E78A3' }} />
           <Image source={require('../assets/logo.png')} style={styles.image} />

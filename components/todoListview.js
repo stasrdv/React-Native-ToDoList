@@ -20,7 +20,9 @@ class todoListview extends React.Component {
       taskList: [],
       token: '',
       task: '',
-      id: ''
+      id: '',
+      editMode:false,
+      tasktext:''
 
     }
     this.deleteSelectedtask = this.deleteSelectedtask.bind(this)
@@ -123,6 +125,36 @@ class todoListview extends React.Component {
 
   }
 
+  updateSelectedTask = () => {
+    
+    this.setState({editMode:!this.state.editMode})
+    fetch('http://todos.moonsite.co.il/api/tasks/' + this.state.id, {
+      
+      method: 'PUT', headers: {
+        'Accept': 'application/json',
+        'Authorization': this.state.token,
+        'Content-Type': 'application/json',
+      },
+      
+      body: JSON.stringify({
+        id:this.state.id,
+        task: this.state.task,
+        order: 1
+
+      })
+
+    })
+      .then((response) => response.json())
+      .then((responseJson) => {
+        this.getTasks()
+
+      })
+      .catch((error) => {
+
+      });
+
+  }
+
   render() {
     const { fadeAnim } = this.state;
     const { container } = styles;
@@ -139,8 +171,21 @@ class todoListview extends React.Component {
         },
       }
     ]
+
+    var  editButton = [
+      {
+        text: 'Edit',
+        backgroundColor: '#BACB2A',
+        underlayColor: '#2E78A3',
+        type:'edit',
+        onPress: () => {
+          this.setState({editMode:true})
+        },
+      }
+    ]
     return (
       <View>
+    
           <Button
           onPress={
             () => navigate('cameraComponent')
@@ -150,7 +195,10 @@ class todoListview extends React.Component {
           backgroundColor='#008CBA'
         />
         <Animated.View style={[container, { opacity: fadeAnim }]}>
-          <TextInput style={styles.inputTask}
+
+        {this.state.editMode==false ? 
+        <View>
+ <TextInput style={styles.inputTask}
             underlineColorAndroid="transparent"
             placeholder="New Task"
             placeholderTextColor="#346CB8"
@@ -161,24 +209,41 @@ class todoListview extends React.Component {
               () => this.newTask()}>
             <Text style={styles.submitButtonText}> Add New task </Text>
           </TouchableOpacity>
+        </View> :
+              <View>
+              <TextInput style={styles.inputTask}
+                         underlineColorAndroid="transparent"
+                         placeholder={this.state.tasktext}
+                         placeholderTextColor="#346CB8"
+                         onChangeText={this.handleTask}/>
+                       <TouchableOpacity
+                         style={styles.editButton}
+                         onPress={
+                           () => this.updateSelectedTask() }>
+                         <Text style={styles.editButtonText}> Save cahnges </Text>
+                       </TouchableOpacity>
+                     </View> }
+      
+          
+
           <FlatList
             data={this.state.taskList}
+      
             renderItem={({ item }) =>
             
               <Swipeout
                 onOpen={() =>
-                  this.setState({ 'id': item._id })
+                  this.setState({ 'id': item._id ,'tasktext':item.task})
                 }
                 buttonWidth={80}
                 autoClose={true}
+                left={editButton}
                 right={deleteButton}>
                 <View>
-                  <Text style={styles.item}
-                  onPress={() => alert(item.created_at)}
-                  >{item.task}</Text>
+                  <Text style={styles.item}>{item.task}</Text>
                 </View>
               </Swipeout>
-              
+
             } />
 
         </Animated.View>
@@ -211,11 +276,29 @@ const styles = StyleSheet.create({
     borderColor: '#346CB8',
     borderWidth: 1
   },
+  editTask: {
+    width:200,
+    right:220,
+    borderColor: '#346CB8',
+    borderWidth: 1,
+    height: 40,
+    backgroundColor: '#e6e4e2'
+  },
   submitButton: {
     backgroundColor: '#2E78A3',
     padding: 10,
     margin: 15,
     height: 40,
+  },
+  editButton: {
+    backgroundColor: '#32C340',
+    padding: 10,
+    margin: 15,
+    height: 40,
+    
+  },
+  editButtonText: {
+    color: 'black'
   },
   submitButtonText: {
     color: 'white'

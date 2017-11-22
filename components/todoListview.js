@@ -8,8 +8,10 @@ import {
 import {
   StackNavigator,
 } from 'react-navigation';
+import Spinner from 'react-native-loading-spinner-overlay';
 import { SwipeableFlatList, SwipeableListItem } from 'react-native-swipeable-flat-list';
 import Swipeout from 'react-native-swipeout';
+
 
 class todoListview extends React.Component {
 
@@ -21,15 +23,15 @@ class todoListview extends React.Component {
       token: '',
       task: '',
       id: '',
-      editMode:false,
-      tasktext:''
+      editMode: false,
+      tasktext: '',
+      visible: false
 
     }
     this.deleteSelectedtask = this.deleteSelectedtask.bind(this)
   }
 
   componentDidMount() {
-
     Animated.sequence([
       Animated.timing(
         this.state.fadeAnim,
@@ -47,8 +49,11 @@ class todoListview extends React.Component {
     }).done();
   }
 
+
+  handleTask = (text) => {
+    this.setState({ task: text })
+  }
   newTask = () => {
-    
     fetch('http://todos.moonsite.co.il/api/tasks', {
       method: 'POST', headers: {
         'Accept': 'application/json',
@@ -63,7 +68,7 @@ class todoListview extends React.Component {
     })
       .then((response) => response.json())
       .then((responseJson) => {
-        
+
         this.getTasks();
 
       })
@@ -72,14 +77,6 @@ class todoListview extends React.Component {
 
       });
 
-
-
-
-
-  }
-
-  handleTask = (text) => {
-    this.setState({ task: text })
   }
 
   getTasks = () => {
@@ -101,9 +98,7 @@ class todoListview extends React.Component {
       .catch((error) => {
 
       });
-
   }
-
   deleteSelectedtask = () => {
     fetch('http://todos.moonsite.co.il/api/tasks/' + this.state.id, {
       method: 'DELETE', headers: {
@@ -115,29 +110,28 @@ class todoListview extends React.Component {
     })
       .then((response) => response.json())
       .then((responseJson) => {
-        
+
         this.getTasks()
 
       })
       .catch((error) => {
 
       });
-
   }
 
   updateSelectedTask = () => {
-    
-    this.setState({editMode:!this.state.editMode})
+    this.setState({
+      editMode: !this.state.editMode,
+      visible: true,
+    })
     fetch('http://todos.moonsite.co.il/api/tasks/' + this.state.id, {
-      
       method: 'PUT', headers: {
         'Accept': 'application/json',
         'Authorization': this.state.token,
         'Content-Type': 'application/json',
       },
-      
       body: JSON.stringify({
-        id:this.state.id,
+        id: this.state.id,
         task: this.state.task,
         order: 1
 
@@ -146,6 +140,7 @@ class todoListview extends React.Component {
     })
       .then((response) => response.json())
       .then((responseJson) => {
+        this.setState({ visible: false })
         this.getTasks()
 
       })
@@ -163,77 +158,71 @@ class todoListview extends React.Component {
     var deleteButton = [
       {
         text: 'Delete',
-        backgroundColor: '#C32C31',
+        backgroundColor: '#fe3b31',
         underlayColor: '#2E78A3',
-        type:'delete',
+        type: 'delete',
         onPress: () => {
           this.deleteSelectedtask();
         },
       }
     ]
 
-    var  editButton = [
+    var editButton = [
       {
         text: 'Edit',
-        backgroundColor: '#BACB2A',
+        backgroundColor: '#03a792',
         underlayColor: '#2E78A3',
-        type:'edit',
+        type: 'edit',
         onPress: () => {
-          this.setState({editMode:true})
+          this.setState({ editMode: true })
         },
       }
     ]
     return (
       <View>
-    
-          <Button
+        <Button
           onPress={
             () => navigate('cameraComponent')
           }
           title="QR Scanner"
-          color="#008CBA"
-          backgroundColor='#008CBA'
+          color="#2286fc"
+          backgroundColor='#f3f3f3'
         />
         <Animated.View style={[container, { opacity: fadeAnim }]}>
-
-        {this.state.editMode==false ? 
-        <View>
- <TextInput style={styles.inputTask}
-            underlineColorAndroid="transparent"
-            placeholder="New Task"
-            placeholderTextColor="#346CB8"
-            onChangeText={this.handleTask}/>
-          <TouchableOpacity
-            style={styles.submitButton}
-            onPress={
-              () => this.newTask()}>
-            <Text style={styles.submitButtonText}> Add New task </Text>
-          </TouchableOpacity>
-        </View> :
-              <View>
+          {this.state.editMode == false ?
+            <View>
               <TextInput style={styles.inputTask}
-                         underlineColorAndroid="transparent"
-                         placeholder={this.state.tasktext}
-                         placeholderTextColor="#346CB8"
-                         onChangeText={this.handleTask}/>
-                       <TouchableOpacity
-                         style={styles.editButton}
-                         onPress={
-                           () => this.updateSelectedTask() }>
-                         <Text style={styles.editButtonText}> Save cahnges </Text>
-                       </TouchableOpacity>
-                     </View> }
-      
-          
-
+                underlineColorAndroid="transparent"
+                placeholder="New Task"
+                placeholderTextColor="#346CB8"
+                onChangeText={this.handleTask} />
+              <TouchableOpacity
+                style={styles.submitButton}
+                onPress={
+                  () => this.newTask()}>
+                <Text style={styles.submitButtonText}> Add New task </Text>
+              </TouchableOpacity>
+            </View> :
+            <View>
+              <TextInput style={styles.inputTask}
+                underlineColorAndroid="transparent"
+                placeholder={this.state.tasktext}
+                placeholderTextColor="#346CB8"
+                onChangeText={this.handleTask} />
+              <TouchableOpacity
+                style={styles.editButton}
+                onPress={
+                  () => this.updateSelectedTask()}>
+                <Text style={styles.editButtonText}> Save cahnges </Text>
+              </TouchableOpacity>
+            </View>}
+          <Spinner visible={this.state.visible} textContent={"Loading..."} textStyle={{ color: '#2E78A3' }} />
           <FlatList
             data={this.state.taskList}
-      
             renderItem={({ item }) =>
-            
               <Swipeout
                 onOpen={() =>
-                  this.setState({ 'id': item._id ,'tasktext':item.task})
+                  this.setState({ 'id': item._id, 'tasktext': item.task })
                 }
                 buttonWidth={80}
                 autoClose={true}
@@ -244,8 +233,7 @@ class todoListview extends React.Component {
                 </View>
               </Swipeout>
 
-            } />
-
+            }/>
         </Animated.View>
       </View>
     )
@@ -259,46 +247,46 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     padding: 30,
     margin: 2,
-    borderColor: '#346CB8',
+    borderColor: '#2286fc',
     borderWidth: 1,
-    backgroundColor: '#e6e4e2'
+    backgroundColor: '#ffffff'
   },
   input: {
     margin: 15,
     height: 40,
     width: 100,
-    borderColor: '#346CB8',
+    borderColor: '#2286fc',
     borderWidth: 1
   },
   inputTask: {
     margin: 15,
     height: 40,
-    borderColor: '#346CB8',
+    borderColor: '#2286fc',
     borderWidth: 1
   },
   editTask: {
-    width:200,
-    right:220,
+    width: 200,
+    right: 220,
     borderColor: '#346CB8',
     borderWidth: 1,
     height: 40,
     backgroundColor: '#e6e4e2'
   },
   submitButton: {
-    backgroundColor: '#2E78A3',
+    backgroundColor: '#2286fc',
     padding: 10,
     margin: 15,
     height: 40,
   },
   editButton: {
-    backgroundColor: '#32C340',
+    backgroundColor: '#5add72',
     padding: 10,
     margin: 15,
     height: 40,
-    
+
   },
   editButtonText: {
-    color: 'black'
+    color: 'white'
   },
   submitButtonText: {
     color: 'white'

@@ -32,6 +32,7 @@ class todoListview extends React.Component {
   }
 
   componentDidMount() {
+    this.setState({ visible: true })
     Animated.sequence([
       Animated.timing(
         this.state.fadeAnim,
@@ -53,7 +54,9 @@ class todoListview extends React.Component {
   handleTask = (text) => {
     this.setState({ task: text })
   }
+
   newTask = () => {
+    this.textInput.clear()
     fetch('http://todos.moonsite.co.il/api/tasks', {
       method: 'POST', headers: {
         'Accept': 'application/json',
@@ -68,7 +71,6 @@ class todoListview extends React.Component {
     })
       .then((response) => response.json())
       .then((responseJson) => {
-
         this.getTasks();
 
       })
@@ -90,6 +92,7 @@ class todoListview extends React.Component {
     })
       .then((response) => response.json())
       .then((responseJson) => {
+        this.setState({ visible: false })
         this.setState({
           taskList: responseJson.tasks
         })
@@ -124,6 +127,7 @@ class todoListview extends React.Component {
       editMode: !this.state.editMode,
       visible: true,
     })
+    this.textInput.clear()
     fetch('http://todos.moonsite.co.il/api/tasks/' + this.state.id, {
       method: 'PUT', headers: {
         'Accept': 'application/json',
@@ -175,6 +179,7 @@ class todoListview extends React.Component {
         type: 'edit',
         onPress: () => {
           this.setState({ editMode: true })
+          this.textInput.clear()
         },
       }
     ]
@@ -192,6 +197,7 @@ class todoListview extends React.Component {
           {this.state.editMode == false ?
             <View>
               <TextInput style={styles.inputTask}
+                ref={input => { this.textInput = input }}
                 underlineColorAndroid="transparent"
                 placeholder="New Task"
                 placeholderTextColor="#346CB8"
@@ -205,6 +211,7 @@ class todoListview extends React.Component {
             </View> :
             <View>
               <TextInput style={styles.inputTask}
+                ref={input => { this.textInput = input }}
                 underlineColorAndroid="transparent"
                 placeholder={this.state.tasktext}
                 placeholderTextColor="#346CB8"
@@ -213,7 +220,7 @@ class todoListview extends React.Component {
                 style={styles.editButton}
                 onPress={
                   () => this.updateSelectedTask()}>
-                <Text style={styles.editButtonText}> Save cahnges </Text>
+                <Text style={styles.editButtonText}> Save Changes </Text>
               </TouchableOpacity>
             </View>}
           <Spinner visible={this.state.visible} textContent={"Loading..."} textStyle={{ color: '#2E78A3' }} />
